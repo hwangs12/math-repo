@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
-const data = [
-	{ title: "Fuck you!" },
-	{ title: "Don't Ask Me When I Am Going to Get a Job!" },
-	{ title: "Shut Up!" },
-];
+const data = [{ title: "MATH" }, { title: "RIGOR" }, { title: "PROOF" }];
 
 const Hookers = () => {
 	const [title, setTitle] = useState(data[0].title);
@@ -24,7 +20,7 @@ const Hookers = () => {
 				<h1>{title}</h1>
 			</div>
 			<button className="btn" onClick={handleClick}>
-				SWEAR AT WILL
+				CLICK
 			</button>
 		</>
 	);

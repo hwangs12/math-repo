@@ -1,7 +1,37 @@
-.container {
+.header {
 	display: flex;
 	justify-content: center;
 	background-color: steelblue;
 	flex-direction: column;
 	align-items: center;
+}
+
+.mainbody {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+.mainbody > ol {
+	padding: 0;
+}
+
+.mainbody > button {
+	margin-left: auto;
+	margin-top: 50px;
+}
+
+.sentences {
+	background-color: bisque;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.sentences > p {
+	display: inline;
+	font-size: 1.5em;
+}
+
+.sentences > button {
+	float: right;
 }
