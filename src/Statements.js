@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const sentences = [
-	{ id: 1, statement: "square root of two is irrational" },
-	{ id: 2, statement: "there are infinite number of prime numbers" },
-	{ id: 3, statement: "y=x^2 is a continuous at 0" },
-	{ id: 4, statement: "e is irrational" },
-	{ id: 5, statement: "pi is irrational" },
-];
+const Statements = (props) => {
+	const [axioms, setAxioms] = useState(props.statements);
 
-const Statements = () => {
-	const [axioms, setAxioms] = useState(sentences);
+	useEffect(() => {
+		setAxioms(props.statements);
+	}, [props.statements]);
 
 	const removeItem = (id) => {
 		let unremovedItem = axioms.filter((sentence) => {
@@ -36,7 +32,10 @@ const Statements = () => {
 					);
 				})}
 			</ol>
-			<button>ADD</button>
+			<div className="form">
+				<input type="text" name="axiom" id="" />
+				<button>ADD</button>
+			</div>
 		</>
 	);
 };

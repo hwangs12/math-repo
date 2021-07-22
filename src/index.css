@@ -35,3 +35,13 @@
 .sentences > button {
 	float: right;
 }
+
+.form {
+	display: flex;
+	justify-content: center;
+}
+
+.form input {
+	width: 500px;
+	height: 30px;
+}

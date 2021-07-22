@@ -1,25 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-const data = [{ title: "MATH" }, { title: "RIGOR" }, { title: "PROOF" }];
-
-const Hookers = () => {
-	const [title, setTitle] = useState(data[0].title);
-	const handleClick = () => {
-		if (title === data[0].title) {
-			setTitle(data[1].title);
-		} else if (title === data[1].title) {
-			setTitle(data[2].title);
-		} else {
-			setTitle(data[0].title);
-		}
-	};
-
+const Hookers = (props) => {
 	return (
 		<>
 			<div className="title">
-				<h1>{title}</h1>
+				<h1>{props.title}</h1>
 			</div>
-			<button className="btn" onClick={handleClick}>
+			<button className="btn" onClick={props.handleClick}>
 				CLICK
 			</button>
 		</>
