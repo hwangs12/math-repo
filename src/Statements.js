@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import data from "./data";
 
 const Statements = (props) => {
 	const [axioms, setAxioms] = useState(props.statements);
 
+	//this connects the state from Components state
 	useEffect(() => {
 		setAxioms(props.statements);
 	}, [props.statements]);
@@ -12,6 +14,18 @@ const Statements = (props) => {
 			return sentence.id !== id;
 		});
 		setAxioms(unremovedItem);
+		data[props.index].statements = unremovedItem;
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const newAxiom = axioms.concat({
+			id: axioms[axioms.length - 1].id + 1,
+			statement: document.getElementById("statement").value,
+		});
+		setAxioms(newAxiom);
+		data[props.index].statements = newAxiom;
+		document.getElementById("statement").value = "";
 	};
 
 	return (
@@ -33,8 +47,10 @@ const Statements = (props) => {
 				})}
 			</ol>
 			<div className="form">
-				<input type="text" name="axiom" id="" />
-				<button>ADD</button>
+				<form onSubmit={handleSubmit}>
+					<input type="text" name="axiom" id="statement" />
+					<button>ADD</button>
+				</form>
 			</div>
 		</>
 	);
