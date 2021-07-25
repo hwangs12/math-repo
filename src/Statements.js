@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import data from "./data";
+import { v4 as uuidv4 } from "uuid";
 
 const Statements = (props) => {
 	const [axioms, setAxioms] = useState(props.statements);
@@ -20,7 +21,7 @@ const Statements = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const newAxiom = axioms.concat({
-			id: axioms[axioms.length - 1].id + 1,
+			id: uuidv4(),
 			statement: document.getElementById("statement").value,
 		});
 		setAxioms(newAxiom);
